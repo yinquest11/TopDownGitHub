@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2.3951235}
-  m_LocalScale: {x: 0.13379, y: 0.13379, z: 0.13379}
+  m_LocalScale: {x: 0.6009446, y: 0.13379, z: 0.13379}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 351061133048579729}
@@ -97,8 +97,8 @@ GameObject:
   m_Component:
   - component: {fileID: 351061133048579729}
   - component: {fileID: -6632847091569593840}
-  - component: {fileID: -1305458322660140616}
   - component: {fileID: -5872163662217209891}
+  - component: {fileID: 2582709423856986209}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -116,7 +116,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2640116, y: 5.6482134, z: 2.1864333}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2380644726218222182}
@@ -149,8 +149,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &-1305458322660140616
-BoxCollider2D:
+--- !u!114 &-5872163662217209891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4641243486295409924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7242c5d256fca224ba3c40b958987db1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 1283.5
+  LifeTime:
+    CurrentProgress: 0
+    Duration: 3
+--- !u!60 &2582709423856986209
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -193,21 +209,21 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.09, y: 0.07}
-  m_EdgeRadius: 0
---- !u!114 &-5872163662217209891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4641243486295409924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7242c5d256fca224ba3c40b958987db1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 568.3
-  LifeTime:
-    CurrentProgress: 0
-    Duration: 1
+  m_Points:
+    m_Paths:
+    - - {x: 0.2663567, y: 0.029302794}
+      - {x: 0.20717797, y: 0.04500434}
+      - {x: 0.11750159, y: 0.062744744}
+      - {x: -0.0031931014, y: 0.06450795}
+      - {x: -0.17594343, y: 0.05659833}
+      - {x: -0.23048276, y: 0.04121106}
+      - {x: -0.27719504, y: 0.025409976}
+      - {x: -0.296899, y: -0.006332964}
+      - {x: -0.23551397, y: -0.041263744}
+      - {x: -0.13975424, y: -0.06089163}
+      - {x: 0.048906792, y: -0.06470519}
+      - {x: 0.16416068, y: -0.054747842}
+      - {x: 0.26687172, y: -0.029333591}
+      - {x: 0.29572067, y: -0.009783895}
+      - {x: 0.29861507, y: 0.007287058}
+  m_UseDelaunayMesh: 0
