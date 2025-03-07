@@ -31,6 +31,7 @@ public class Movemet : MonoBehaviour
         _collider = GetComponent<Collider2D>();
         _rigidBody = GetComponent<Rigidbody2D>();
         _weaponHandler = GetComponent<WeaponHandle>();
+        
     }
 
     

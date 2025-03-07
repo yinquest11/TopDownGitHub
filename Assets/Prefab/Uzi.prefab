@@ -267,4 +267,4 @@ MonoBehaviour:
   ReloadCooldown:
     CurrentProgress: 0
     Duration: 0.77
-  MaxBulletCount: 47
+  MaxBulletCount: 296
