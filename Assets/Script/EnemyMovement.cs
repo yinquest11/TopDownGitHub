@@ -19,7 +19,7 @@ public class EnemyMovement : Movemet
         playerr = GameObject.FindWithTag("Player");
 
         //BaseClass的public variable
-        Acceleration = 2.5f;
+        
         
 
     }
@@ -40,12 +40,13 @@ public class EnemyMovement : Movemet
         //.normalized的意思代表不论你最后的长度，我都变成1，并且我只保留最简单的方向信息
 
         _inputDirection = new Vector2 (playerr.transform.position.x - transform.position.x, playerr.transform.position.y - transform.position.y).normalized;
-        
+
 
         //Debug类的静态方法
         //线将会从第一个参数的位置开始绘制
         //第二个参数是线的方向和长度
         //第三个参数是线的颜色
+        Debug.Log(Acceleration);
         Debug.DrawRay(transform.position,_inputDirection,Color.yellow);
     }
     

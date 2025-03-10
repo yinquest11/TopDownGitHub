@@ -39,14 +39,15 @@ public abstract class PickUp : MonoBehaviour
         //但是我们！，所以变成false，不执行if里面的return。
         //false!变true的话执行return
 
+        //查看捡的人是不是在 TargerLayerMask里面
         if (                 !(      (TargetLayerMask.value & (1 << col.gameObject.layer)   ) > 0      )                  )
            
             return;
         //只有结果为！ture的话，最后才会来到这边
-        //调用PickedUP()函数并调用触发这个gameObject的游戏对象上的Collider2D作为参数
+        //调用这个会被ovverride的PickedUP()函数并调用触发这个gameObject的游戏对象上的Collider2D作为参数
         PickedUp(col);
         
-        //便利PickupFeedbacks GameObejct数组去Instantiate它们
+        //利用PickupFeedbacks GameObejct数组去Instantiate它们想要的feedback
         foreach(var feedback in PickupFeedbacks)
         {
             //以当前的位置和角度生成

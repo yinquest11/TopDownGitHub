@@ -4,7 +4,7 @@ public class WeaponPickUp : PickUp
 {
     public GameObject Weapon;
 
-    //当等待被人捡起来的GameObject是一把枪时，枪专有的PickedUp()方法
+    //当等待被人捡起来的GameObject是一把枪时，枪类专有的PickedUp()方法
     protected override void PickedUp(Collider2D col)
     {
         //如果要准备要掉落的东西没被赋到，弹出Missing Weapon因为不知道要掉落什么

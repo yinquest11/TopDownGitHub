@@ -7,11 +7,13 @@ public class Projectile : MonoBehaviour
     public float Speed = 10f;
     public Cooldown LifeTime;
     private Rigidbody2D _rigidbody;
-
+    
     
 
     void Start()
     {
+        
+        //transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
         //我们要从脚本操控Rigidbody2D就要在脚本把这个组件GetComponent，Collider2D没有在脚本里使用到就不用GetComponent
         _rigidbody = GetComponent<Rigidbody2D>();
 

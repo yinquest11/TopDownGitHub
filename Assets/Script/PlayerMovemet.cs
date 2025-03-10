@@ -1,11 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Xml.Serialization;
+using UnityEngine;
+using UnityEngine.UIElements;
 
 
 //继承自Movement类
 public class PlayerMovemet : Movemet
 {
 
-
+    public GameObject DogeEffect;
 
     //override Movement的HandleInput
     protected override void HandleInput()
@@ -18,16 +20,10 @@ public class PlayerMovemet : Movemet
 
     //覆盖Movement的HandleRotation()
     protected override void HandleRotation()
+
+    
     {
-        //GetAxisRaw是检测当你按下，就会返回一个值，正面输入positive（轴的正向）是1，负向输入negative（轴的负向）是-1. ！=0代表有在按，就会有1或者-1的值，来判断是否是在按按钮（输入轴类按钮，比如上下左右）
-        //Input.GetAxisRaw没有平滑处理，直接-1 0 1
-
-        //if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
-        //{   
-        //有碰的时候才执行旋转逻辑
-        //用base.关键字使用BaseClass的方法
-
-        //没有拿到武器的时候照常
+        
         if (_weaponHandler == null || _weaponHandler.CurrentWeapon == null)
         {
             if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
@@ -37,12 +33,9 @@ public class PlayerMovemet : Movemet
             
             return;
         }
-
-        //能来到这里代表拿到武器了
-
         //创建一个Vector3 mousePos用来储存第一个Tag为MainCamera对象上的Camera组件然后使用.ScreenToWorldPoint()函数
         //函数ScreenToWorldPoint会根据我鼠标的坐标返回一个该点在游戏内的坐标的Vector3，但通常我们需要额外去调整z值
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         //这个是我们玩家要对齐的Vector，额外把z调整成和玩家一样的深度。
         //理论上你要一个和你一样深度的方向指向你要去的x y比较好
@@ -67,9 +60,57 @@ public class PlayerMovemet : Movemet
         //把这个角度应用给Player
         //2D游戏的话我只要z轴在转，所以把这个角度赋值给z轴，所以z轴会以这个角度去旋转
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+        //GetAxisRaw是检测当你按下，就会返回一个值，正面输入positive（轴的正向）是1，负向输入negative（轴的负向）是-1. ！=0代表有在按，就会有1或者-1的值，来判断是否是在按按钮（输入轴类按钮，比如上下左右）
+        //Input.GetAxisRaw没有平滑处理，直接-1 0 1
+
+        //if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+        //{   
+        //有碰的时候才执行旋转逻辑
+        //用base.关键字使用BaseClass的方法
+
+        //没有拿到武器的时候照常
+
+
+
+
         
-        //}
+    }
+    protected override void HandleDoge()
+    {
+        
+        if (Input.GetButtonDown("Jump") || Input.GetButtonDown("Fire2"))
+        {
+            IsDoge = true;
+            _rigidBody.AddRelativeForce(Doge);
+            Invoke("EndDoge", 0.1f);
+
+        }
+
+        if ( DogeEffect== null) { Debug.LogWarning(gameObject.name + ":  is missing something."); return; }
+
+        if (IsDoge)
+        {
+            Instantiate(DogeEffect, transform.position, transform.rotation);
+        }
+
+
+    }
+    public void EndDoge()
+    {
+        IsDoge=false;
         
     }
 
+    protected override void HandleCamara()
+    {
+
+        Vector3 s_position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 44);
+        _mainCamera = Camera.main;
+
+        _mainCamera.transform.position = s_position;
+
+    }
+
+    
 }

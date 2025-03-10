@@ -23,6 +23,11 @@ public class Movemet : MonoBehaviour
     protected Vector2 _inputDirection;
     protected Vector2 m_Velocity = Vector2.zero;
     protected Vector2 _targetVelocity = Vector2.zero;
+
+    public Vector2 Doge;
+    public float DogeSpeed = 30f;
+
+    public bool IsDoge = false;
     
     //protected，只有继承Movement的类才能访问并且使用Movement的class
     protected virtual void Start()
@@ -31,9 +36,13 @@ public class Movemet : MonoBehaviour
         _collider = GetComponent<Collider2D>();
         _rigidBody = GetComponent<Rigidbody2D>();
         _weaponHandler = GetComponent<WeaponHandle>();
+        Doge = transform.up * DogeSpeed;
+
         
     }
 
+    
+    protected Camera _mainCamera;
     
     protected virtual void Update()
     {
@@ -41,6 +50,15 @@ public class Movemet : MonoBehaviour
         HandleInput();
         HandleMovement();
         HandleRotation();
+        HandleDoge();
+        
+        
+    }
+
+    protected virtual void LateUpdate()
+    {
+        
+        HandleCamara();
     }
 
 
@@ -49,14 +67,16 @@ public class Movemet : MonoBehaviour
     {
 
     }
-
-
-    
     protected virtual void HandleMovement()
     {
         //自我保护
         if(_rigidBody == null || _collider == null)
             return;
+
+        if (IsDoge)
+            return;
+
+        
 
         //本地私人变量，小写开头
         //初始化一个私人变量targetVelocity，并且初始化为0
@@ -85,8 +105,6 @@ public class Movemet : MonoBehaviour
         //把当前速度用于HandleRotation();,保护targetVelocity不会被直接修改
         _targetVelocity = targetVelocity;
     }
-
-
     protected virtual void HandleRotation()
     {
         if (_inputDirection == Vector2.zero) 
@@ -102,5 +120,14 @@ public class Movemet : MonoBehaviour
         //速度是向量，所以在这个情况速度可以被当成一个方向
         //我要的方向，是这个速度的方向
         transform.rotation = Quaternion.LookRotation(Vector3.forward, _targetVelocity);
+    }
+    protected virtual void HandleDoge()
+    {
+
+    }
+
+    protected virtual void HandleCamara()
+    {
+
     }
 }   
