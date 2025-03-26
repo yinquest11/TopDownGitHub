@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 725864491976407262}
   - component: {fileID: 5268360842904029628}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyGraphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,8 @@ GameObject:
   - component: {fileID: 870681125445811948}
   - component: {fileID: 6411810177811395663}
   - component: {fileID: 7099772447416959830}
-  m_Layer: 0
+  - component: {fileID: 1278859275727114161}
+  m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,3 +218,19 @@ PolygonCollider2D:
       - {x: 0.12294358, y: -0.2777692}
       - {x: 0.49132258, y: -0.27842015}
   m_UseDelaunayMesh: 0
+--- !u!114 &1278859275727114161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2311060211822058497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3814574aa8c3dfc45ac3e2eb8f79b81c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 6
+  EnemyDeathSoundObject: {fileID: 7106842680291873304, guid: 60d29e6323c7c0d4eb76d9c1da1aec61, type: 3}
+  DropRandomWeapon: {fileID: 6764903826563300206, guid: 57854d9c0d3240841adae8bdbd6aebeb, type: 3}
+  ScoreW: 0

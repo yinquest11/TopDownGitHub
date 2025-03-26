@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 705986759103496140}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.14, y: 3.26, z: 0}
+  m_LocalPosition: {x: 0.01, y: 2.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -319,7 +319,7 @@ Transform:
   m_GameObject: {fileID: 9103928081982704910}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2.3951235}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.8092579, y: 0.3776564, z: 0.8092579}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -342,10 +342,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FireMode: 2
-  Spread: 0
-  BrustFireAmount: 3
+  Spread: 3.9
   BrustFireInterval: 0.07
-  ProjectileCount: 17
+  FireRate: 0.07
+  ShotgunSpread: 52.7
+  BrustFireAmount: 9
+  MaxBulletCount: 7
+  ProjectileCount: 14
   Projectile: {fileID: 4641243486295409924, guid: 2ee1900f7c54d8648ba36eba4eddee80, type: 3}
   Feedbacks: []
   ReloadFeedbacks: []
@@ -356,13 +359,11 @@ MonoBehaviour:
   ReloadCooldown:
     CurrentProgress: 0
     Duration: 0.78
-  MaxBulletCount: 7
   SingleClip: {fileID: 8300000, guid: 37cb89136d1d09f4a914723f6f1f6976, type: 3}
   BrustClip: {fileID: 8300000, guid: 1ef608d5a4fea6d438d454234c0656a0, type: 3}
   AutoClip: {fileID: 8300000, guid: d025358fffc689846906a929f3f02c35, type: 3}
   ShotgunClip: {fileID: 8300000, guid: 3745d31eb7ae2a24e80238f96d8f548a, type: 3}
   GunReloadClip: {fileID: 8300000, guid: 69608990d1eb1cf4b8096aa3aab5c69a, type: 3}
-  ShotgunSpread: 68.4
 --- !u!82 &-7309069918692893109
 AudioSource:
   m_ObjectHideFlags: 0

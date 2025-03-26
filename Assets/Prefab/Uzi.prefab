@@ -255,8 +255,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FireMode: 0
   Spread: 1
-  BrustFireAmount: 3
   BrustFireInterval: 0.01
+  FireRate: 0.01
+  ShotgunSpread: 44.9
+  BrustFireAmount: 3
+  MaxBulletCount: 100
   ProjectileCount: 1
   Projectile: {fileID: 4641243486295409924, guid: 2ee1900f7c54d8648ba36eba4eddee80, type: 3}
   Feedbacks: []
@@ -268,13 +271,12 @@ MonoBehaviour:
   ReloadCooldown:
     CurrentProgress: 0
     Duration: 0.77
-  MaxBulletCount: 34
   SingleClip: {fileID: 0}
   BrustClip: {fileID: 0}
   AutoClip: {fileID: 8300000, guid: d025358fffc689846906a929f3f02c35, type: 3}
   ShotgunClip: {fileID: 0}
   GunReloadClip: {fileID: 8300000, guid: 69608990d1eb1cf4b8096aa3aab5c69a, type: 3}
-  ShotgunSpread: 44.9
+  SniperClip: {fileID: 0}
 --- !u!82 &-6047855405240863576
 AudioSource:
   m_ObjectHideFlags: 0

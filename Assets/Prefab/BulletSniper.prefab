@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.107724585, y: 0.10276246, z: 0.4573659}
+  m_LocalScale: {x: 0.52159166, y: 0.49756554, z: 2.21452}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 351061133048579729}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 3951205512335143881}
   - component: {fileID: -4024742947501138781}
   m_Layer: 4
-  m_Name: Bullet
+  m_Name: BulletSniper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7242c5d256fca224ba3c40b958987db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 1756
+  Speed: 4989
   LifeTime:
     CurrentProgress: 0
     Duration: 0.85
@@ -201,7 +201,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.00178992, y: 0.012635531}
+  m_Offset: {x: 0.012611806, y: 0.1001067}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -211,7 +211,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.10742232, y: 0.12229794}
+  m_Size: {x: 1.0707613, y: 0.68197656}
   m_EdgeRadius: 0
 --- !u!114 &-4024742947501138781
 MonoBehaviour:
@@ -260,8 +260,8 @@ Transform:
   m_GameObject: {fileID: 8618138832683430904}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0233, z: 0}
-  m_LocalScale: {x: 0.10064023, y: 0.10399297, z: 0.0584971}
+  m_LocalPosition: {x: 0, y: 0.186, z: 0}
+  m_LocalScale: {x: 0.4872899, y: 0.5035235, z: 0.2832371}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 351061133048579729}

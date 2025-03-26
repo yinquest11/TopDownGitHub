@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 4912476277378834922}
   - component: {fileID: 7360502130152992355}
   - component: {fileID: 2533806525431765645}
+  - component: {fileID: 5705559037701255422}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -246,6 +247,7 @@ MonoBehaviour:
   Doge: {x: 0, y: 0}
   DogeSpeed: 0.12
   IsDoge: 0
+  DogeEffect: {fileID: 4351257473751658068, guid: 8720d5b8e4b8067449071d67897a9f1e, type: 3}
 --- !u!114 &2533806525431765645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,6 +262,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentWeapon: {fileID: 0}
   GunPosition: {fileID: 2865072627480057624}
+--- !u!114 &5705559037701255422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4405459125113930756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e36daf7b7677024e94b8847efafa12e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemylayer: 0
 --- !u!1 &8149856601688588017
 GameObject:
   m_ObjectHideFlags: 0
