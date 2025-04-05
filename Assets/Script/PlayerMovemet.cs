@@ -8,6 +8,7 @@ public class PlayerMovemet : Movemet
 
     public GameObject DogeEffect;
     private GameObject _cloneDogeEffect;
+    
 
     //override Movement的HandleInput
     protected override void HandleInput()
@@ -17,16 +18,17 @@ public class PlayerMovemet : Movemet
 
     protected override void HandleRotation()
 
-    
+
     {
         
+
         if (_weaponHandler == null || _weaponHandler.CurrentWeapon == null)
         {
             if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
             {
                 base.HandleRotation();
             }
-            
+
             return;
         }
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -46,15 +48,26 @@ public class PlayerMovemet : Movemet
         //-90 offset because object in Unity default facing Y-axis, but Atan2 default calculate object facing X-axis
         float angle = (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) - 90f;
 
+
+
         //2D game only Z-axis suppose to be rotate
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-       
+        if(transform.eulerAngles.z <= 180)
+        {
+
+            gameObject.GetComponentInChildren<SpriteRenderer>().flipY = true;
+        }
+        else if(transform.eulerAngles.z > 180)
+        {
+
+            gameObject.GetComponentInChildren<SpriteRenderer>().flipY = false;
+        }
 
 
 
 
-        
+
     }
     protected override void HandleDoge()
     {
@@ -94,7 +107,7 @@ public class PlayerMovemet : Movemet
 
 
     }
-    public void EndDoge()
+    public virtual void EndDoge()
     {
         IsDoge = false;
         

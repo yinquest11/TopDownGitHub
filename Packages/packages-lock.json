@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.nobi.roundedcorners": {
+      "version": "file:C:/Users/user/Downloads/Unity_UI_Rounded_Corners-master/Unity_UI_Rounded_Corners-master",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.unity.2d.animation": {
       "version": "10.1.4",
       "depth": 1,

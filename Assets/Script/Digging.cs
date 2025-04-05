@@ -29,6 +29,14 @@ public class Digging : MonoBehaviour
 
     private float _align;
 
+    public Sprite DefaultDave;
+    public Sprite WaterDave;
+
+    private Vector3 _originalScale;
+
+    private SpriteRenderer _dave;
+
+    public float WaterScale;
     public void Start()
     {
         _digBefore = false;
@@ -45,8 +53,11 @@ public class Digging : MonoBehaviour
 
         ZoomDuration = 0.5f;
 
-        
+        WaterScale = 3.39f;
 
+        _dave = GameObject.FindWithTag("PlayerFixedImage").GetComponent<SpriteRenderer>();
+        _originalScale = GameObject.FindWithTag("PlayerFixedImage").transform.localScale;
+        
 
     }
 
@@ -66,16 +77,20 @@ public class Digging : MonoBehaviour
 
         if (Input.GetButtonDown("Dig"))
         {
-
+            if ( WaterDave == null) { Debug.LogWarning(gameObject.name + " Water Dave:  is missing something."); return; }
+            _dave.transform.localScale = new Vector3(WaterScale, WaterScale, WaterScale);
+            _dave.sprite = WaterDave;
            InitiaslizeZoom();
-
+            
             
             
         }
 
         if (Input.GetButtonUp("Dig"))
         {
-
+            if (DefaultDave == null) { Debug.LogWarning(gameObject.name + " DefaultDave:  is missing something."); return; }
+            _dave.transform.localScale = _originalScale;
+            _dave.sprite = DefaultDave;
             InitializeSmallZoom();
 
 

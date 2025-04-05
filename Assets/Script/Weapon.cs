@@ -18,7 +18,7 @@ public class Weapon : MonoBehaviour
 
     public FireModes FireMode;
 
-
+    private DamageOnTouch _damageOnTouch;
     public float Spread = 0f;
     public float BrustFireInterval = 0.07f;
     public float FireRate = 0.07f;
@@ -69,6 +69,7 @@ public class Weapon : MonoBehaviour
 
     private void Start()
     {
+        _damageOnTouch = Projectile.GetComponent<DamageOnTouch>();
         currentBulletCount = MaxBulletCount;
         _source = GetComponent<AudioSource>();
         _brustFireInterval = BrustFireInterval;
@@ -86,6 +87,8 @@ public class Weapon : MonoBehaviour
             _brustFireInterval -= Time.deltaTime;
 
         }
+
+        //Debug.Log(_damageOnTouch.damageAmount);
     }
 
     private void UpdateReloadCooldown() 
@@ -128,23 +131,25 @@ public class Weapon : MonoBehaviour
         {
             case FireModes.Auto:
                 {
+                    _damageOnTouch.damageAmount = 0.5f;
                     AutoFireShoot();
                     
                     break;
                 }
             case FireModes.ShotGun:
                 {
+                    _damageOnTouch.damageAmount = 0.5f;
                     ShotGunShoot();
                     break;
                 }
             case FireModes.BrustFire:
                 {
+                    _damageOnTouch.damageAmount = 1f;
                     BurstFireShoot();
                     break;
                 }
             case FireModes.Sniper:
                 {
-                    
                     
                     break;
                 }
@@ -162,13 +167,13 @@ public class Weapon : MonoBehaviour
            if (ShootInterval.CurrentProgress != Cooldown.Progress.Ready)
                 return;
 
-        
-
-        
 
 
-            
-            SniperShootProjectile();
+
+
+
+        _damageOnTouch.damageAmount = 10f;
+        SniperShootProjectile();
 
             
 
@@ -242,7 +247,7 @@ public class Weapon : MonoBehaviour
 
             
 
-            _source.PlayOneShot(AutoClip);
+            _source.PlayOneShot(AutoClip,0.3F);
 
         }
     }
@@ -263,7 +268,7 @@ public class Weapon : MonoBehaviour
         StartCoroutine("BrustShoot");
         currentBulletCount--;
 
-        _source.PlayOneShot(BrustClip, 1.5f);
+        _source.PlayOneShot(BrustClip, 0.7f);
 
         
 
@@ -314,7 +319,7 @@ public class Weapon : MonoBehaviour
         ShootProjectileShotGun();
         
 
-        _source.PlayOneShot(ShotgunClip);
+        _source.PlayOneShot(ShotgunClip,0.6F);
 
         currentBulletCount--;
         ShootInterval.StartCooldown();
@@ -323,7 +328,7 @@ public class Weapon : MonoBehaviour
         {
             ReloadCooldown.StartCooldown();
 
-            _source.PlayOneShot(GunReloadClip, 1.5f);
+            _source.PlayOneShot(GunReloadClip,1.5F);
         }
     }
     void ShootProjectileShotGun()

@@ -6,7 +6,7 @@ public class DamageOnTouch : MonoBehaviour
     public delegate void OnHitSomething();
 
     public OnHitSomething OnHit;
-    private Weapon Weaponn;
+    
 
 
 
@@ -18,16 +18,13 @@ public class DamageOnTouch : MonoBehaviour
     public LayerMask TargetLayerMask;
     public LayerMask IgnoreLayerMask;
 
-    float damageAmount;
+    public float damageAmount;
 
 
 
     public void Update()
     {
-        if (GameObject.FindWithTag("Player").GetComponentInChildren<Weapon>())
-        {
-            Weaponn = GameObject.FindWithTag("Player").GetComponentInChildren<Weapon>();
-        }
+        
     }
 
 
@@ -76,22 +73,24 @@ public class DamageOnTouch : MonoBehaviour
 
     private void TryDamage(Health targetHealth)
     {
-        if(Weaponn.FireMode == Weapon.FireModes.Auto)
-        {
-            damageAmount = 0.5f;
-        }
-        else if (Weaponn.FireMode == Weapon.FireModes.BrustFire)
-        {
-            damageAmount = 1f;
-        }
-        else if(Weaponn.FireMode == Weapon.FireModes.ShotGun)
-        {
-            damageAmount = 0.5f;
-        }
-        else if (Weaponn.FireMode == Weapon.FireModes.Sniper)
-        {
-            damageAmount = 10f;
-        }
+        //Debug.Log(Weaponn.FireMode);
+
+        //if(Weaponn.FireMode == Weapon.FireModes.Auto)
+        //{
+        //    damageAmount = 0.5f;
+        //}
+        //else if (Weaponn.FireMode == Weapon.FireModes.BrustFire)
+        //{
+        //    damageAmount = 1f;
+        //}
+        //else if(Weaponn.FireMode == Weapon.FireModes.ShotGun)
+        //{
+        //    damageAmount = 0.5f;
+        //}
+        //else if (Weaponn.FireMode == Weapon.FireModes.Sniper)
+        //{
+        //    damageAmount = 10f;
+        //}
 
         targetHealth.Damage(damageAmount, transform.gameObject);
 

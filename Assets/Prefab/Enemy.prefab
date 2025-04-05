@@ -26,8 +26,8 @@ Transform:
   m_GameObject: {fileID: 762121483914579316}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.039330516}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.8662, y: 1.8662, z: 1.8662}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1014445238132768001}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: 6019453725058403666, guid: cdda527cacd853642845968ce01a8a20, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 6411810177811395663}
   - component: {fileID: 7099772447416959830}
   - component: {fileID: 1278859275727114161}
+  - component: {fileID: -6136914299031852347}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -117,7 +118,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.430607, y: -0.3519318, z: 0.039330516}
-  m_LocalScale: {x: 1.4184, y: 1.4184, z: 1.4184}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 725864491976407262}
@@ -163,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Acceleration: 2.5
+  _inputDirection: {x: 0, y: 0}
   Doge: {x: 0, y: 0}
   DogeSpeed: 30
   IsDoge: 0
@@ -213,9 +215,18 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 0.0051080813, y: 0.5760235}
+      - {x: -0.056832075, y: 0.97163707}
+      - {x: -0.36564398, y: 1.0149562}
+      - {x: -0.69570374, y: 0.9013242}
+      - {x: -0.68144107, y: 0.61034125}
+      - {x: -0.51427436, y: 0.33252925}
       - {x: -0.26145625, y: 0.08425833}
-      - {x: -0.49583858, y: -0.28287765}
-      - {x: 0.12294358, y: -0.2777692}
+      - {x: -0.5885164, y: -0.5252664}
+      - {x: -0.3882792, y: -0.69004184}
+      - {x: -0.13812137, y: -0.5230237}
+      - {x: -0.2567413, y: -0.9036809}
+      - {x: 0.31565142, y: -1.0374334}
+      - {x: 0.70752794, y: -0.8837409}
       - {x: 0.49132258, y: -0.27842015}
   m_UseDelaunayMesh: 0
 --- !u!114 &1278859275727114161
@@ -231,6 +242,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 6
+  _currentHealth: 10
   EnemyDeathSoundObject: {fileID: 7106842680291873304, guid: 60d29e6323c7c0d4eb76d9c1da1aec61, type: 3}
   DropRandomWeapon: {fileID: 6764903826563300206, guid: 57854d9c0d3240841adae8bdbd6aebeb, type: 3}
   ScoreW: 0
+  isBoss: 0
+  isPlayer: 0
+--- !u!114 &-6136914299031852347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2311060211822058497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4633dba3fe673de43a7f35aa826149d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinDamage: 1
+  MaxDamage: 2
+  PushForce: 10
+  TargetLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  IgnoreLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  damageAmount: 2

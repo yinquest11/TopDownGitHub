@@ -4,6 +4,8 @@ public class SpawnerC : MonoBehaviour
 {
     public GameObject[] EnemyArray;
 
+    public GameObject Boss;
+
     public float SpawnInterval;
 
     private float _spawnTimer;
@@ -19,11 +21,17 @@ public class SpawnerC : MonoBehaviour
     private int _randomSideNumber;
 
     private Vector3 _spawnPosition;
+
+    private ScoreScript _scoreManager;
+
+    public bool _bossFight;
+
+    bool _haveBoss;
     
     void Start()
     {
 
-        
+        _scoreManager = GameObject.FindWithTag("ScoreManager").GetComponent<ScoreScript>();
 
         SpawnInterval = 0.68f; 
 
@@ -31,8 +39,9 @@ public class SpawnerC : MonoBehaviour
 
         _mainCamera = Camera.main;
 
-        
+        _bossFight = false;
 
+        _haveBoss = false;
     }
 
     
@@ -49,6 +58,8 @@ public class SpawnerC : MonoBehaviour
         }
 
         //Choose which side to spawn enemy
+
+
 
 
         _randomSideNumber = Random.Range(0, 4);
@@ -76,13 +87,22 @@ public class SpawnerC : MonoBehaviour
 
         _currentChance = Random.Range(0, EnemyArray.Length);
 
-
-
-        Instantiate(EnemyArray[_currentChance], _spawnPosition, transform.rotation);
         
+        if(_bossFight == false)
+        {
+            Instantiate(EnemyArray[_currentChance],_spawnPosition , transform.rotation);
+        }
+        
+        
+        if(_scoreManager.CurrentScore >= 50 && _haveBoss == false)
+        {
+            if ( Boss == null) { Debug.LogWarning(gameObject.name + ": Boss is missing something."); return; }
+            _bossFight = true;
 
+            Instantiate(Boss, Vector3.zero, transform.rotation);
+            _haveBoss = true;
 
-
+        }
 
         _spawnTimer = SpawnInterval;
 

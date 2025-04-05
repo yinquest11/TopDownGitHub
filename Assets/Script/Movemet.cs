@@ -13,7 +13,7 @@ public class Movemet : MonoBehaviour
 
     protected bool _isMoving = false;
 
-    protected Vector2 _inputDirection;
+    public Vector2 _inputDirection;
     protected Vector2 m_Velocity = Vector2.zero;
     protected Vector2 _targetVelocity = Vector2.zero;
 
@@ -21,13 +21,15 @@ public class Movemet : MonoBehaviour
     public float DogeSpeed = 30f;
 
     public bool IsDoge = false;
-    
+
+   
+
     protected virtual void Start()
     {
         _collider = GetComponent<Collider2D>();
         _rigidBody = GetComponent<Rigidbody2D>();
         _weaponHandler = GetComponent<WeaponHandle>();
-        
+       
 
         
     }

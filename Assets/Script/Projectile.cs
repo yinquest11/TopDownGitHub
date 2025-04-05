@@ -9,6 +9,8 @@ public class Projectile : MonoBehaviour
     private Weapon Weaponn;
     private DamageOnTouch _damageOnTouch;
 
+    public bool DieOnTouch = true;
+
     void Start()
     {
         
@@ -17,8 +19,8 @@ public class Projectile : MonoBehaviour
 
         _damageOnTouch = GetComponent<DamageOnTouch>();
 
-        //subscribe to OnHit
-        if (_damageOnTouch != null)
+       //  subscribe to OnHit
+        if (_damageOnTouch != null && DieOnTouch)
             _damageOnTouch.OnHit += Die;
 
 
@@ -46,11 +48,14 @@ public class Projectile : MonoBehaviour
 
     void Die()
     {
-        if (Weaponn.FireMode == Weapon.FireModes.Sniper)
-            return;
+        //Debug.Log(gameObject.name);
+
+        //if (gameObject.name != "BulletSniper")
+        //    return;
+            
 
         //unsubscribe
-        if (_damageOnTouch != null) 
+        if (_damageOnTouch != null && DieOnTouch) 
             _damageOnTouch.OnHit -= Die;
 
         LifeTime.StopCooldown();

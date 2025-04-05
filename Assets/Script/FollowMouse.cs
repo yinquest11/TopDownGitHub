@@ -8,6 +8,11 @@ public class FollowMouse : MonoBehaviour
     void Start()
     {
         reticle = GetComponent<RectTransform>();
+        if (Cursor.visible)
+        {
+            //Cursor.visible改成false
+            Cursor.visible = false;
+        }
     }
 
     
@@ -22,11 +27,7 @@ public class FollowMouse : MonoBehaviour
 
 
         //Hide my original cursor's image
-        if (Cursor.visible)
-        {
-            //Cursor.visible改成false
-            Cursor.visible = false;
-        }
+        
 
     }
 }
