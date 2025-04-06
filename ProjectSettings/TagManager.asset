@@ -7,6 +7,9 @@ TagManager:
   - ScoreManager
   - PlayerFixedImage
   - Spawner
+  - GameManager
+  - BgmManager
+  - Boss
   layers:
   - Default
   - TransparentFX

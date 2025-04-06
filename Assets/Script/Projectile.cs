@@ -34,7 +34,7 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
-        if (GameObject.FindWithTag("Player").GetComponentInChildren<Weapon>())
+        if (GameObject.FindWithTag("Player") != null)
         {
             Weaponn = GameObject.FindWithTag("Player").GetComponentInChildren<Weapon>();
         }

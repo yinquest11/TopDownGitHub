@@ -29,14 +29,20 @@ public class Health : MonoBehaviour
 
     public bool isPlayer;
 
+    GameManager _gameManager;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
+        _gameManager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+
         _displayHealth = GameObject.Find("Displayhealth").GetComponent<DisplayHealth>();
         ScoreW = 1;
         _scoremanager = GameObject.FindWithTag("ScoreManager").GetComponent<ScoreScript>();
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        if (GameObject.FindWithTag("Spawner").GetComponent<SpawnerC>() != null)
+        if (GameObject.FindWithTag("Spawner")!= null)
         {
             _spawner = GameObject.FindWithTag("Spawner").GetComponent<SpawnerC>();
         }
@@ -112,6 +118,9 @@ public class Health : MonoBehaviour
             
             if (_spawner == null) { Debug.LogWarning(gameObject.name + ": _spawner is missing something."); return; }
             _spawner._bossFight = false;
+
+
+            _gameManager.Win();
             
         }
         
@@ -137,6 +146,6 @@ public class Health : MonoBehaviour
 
     }
 
-
+    
 
 }

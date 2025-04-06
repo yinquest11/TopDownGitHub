@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 762121483914579316}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.26, z: 0}
+  m_LocalPosition: {x: 0, y: -6.98, z: 0}
   m_LocalScale: {x: 1.8662, y: 1.8662, z: 1.8662}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: -1647542415548640716}
   m_Layer: 6
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +118,7 @@ Transform:
   m_GameObject: {fileID: 2311060211822058497}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.430607, y: -0.3519318, z: 0.039330516}
+  m_LocalPosition: {x: 0, y: 0.04, z: 0.039330516}
   m_LocalScale: {x: 0.72, y: 0.72, z: 0.72}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -203,8 +203,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.207376, y: 7.4657283}
-  m_Size: {x: 7.160672, y: 14.742089}
+  m_Offset: {x: -0.20737614, y: -7.0534463}
+  m_Size: {x: 7.1606717, y: 14.618524}
   m_Direction: 0
 --- !u!61 &7083011146152863437
 BoxCollider2D:
@@ -240,7 +240,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.32357788, y: 1.7406259}
+  m_Offset: {x: 0.32357788, y: -13.087463}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -250,7 +250,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 8.654291, y: 3.7225184}
+  m_Size: {x: 8.654291, y: 2.9811068}
   m_EdgeRadius: 0
 --- !u!114 &665368562366874501
 MonoBehaviour:
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3814574aa8c3dfc45ac3e2eb8f79b81c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 60.63
+  MaxHealth: 11.9
   _currentHealth: 10
   EnemyDeathSoundObject: {fileID: 7106842680291873304, guid: 60d29e6323c7c0d4eb76d9c1da1aec61, type: 3}
   DropRandomWeapon: {fileID: 6764903826563300206, guid: 57854d9c0d3240841adae8bdbd6aebeb, type: 3}
