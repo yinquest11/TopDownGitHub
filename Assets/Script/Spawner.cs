@@ -94,7 +94,7 @@ public class SpawnerC : MonoBehaviour
         }
         
         
-        if(_scoreManager.CurrentScore >= 1 && _haveBoss == false)
+        if(_scoreManager.CurrentScore <=0 && _haveBoss == false)
         {
             if ( Boss == null) { Debug.LogWarning(gameObject.name + ": Boss is missing something."); return; }
             _bossFight = true;

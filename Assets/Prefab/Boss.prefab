@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3814574aa8c3dfc45ac3e2eb8f79b81c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 11.9
+  MaxHealth: 42
   _currentHealth: 10
   EnemyDeathSoundObject: {fileID: 7106842680291873304, guid: 60d29e6323c7c0d4eb76d9c1da1aec61, type: 3}
   DropRandomWeapon: {fileID: 6764903826563300206, guid: 57854d9c0d3240841adae8bdbd6aebeb, type: 3}

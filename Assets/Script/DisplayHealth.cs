@@ -5,15 +5,26 @@ public class DisplayHealth : MonoBehaviour
 {
     private float _health;
     private Text _healthText;
+    public Image _healthBar;
     public GameObject BloodPanel;
     private Coroutine _coroutine;
+    private Health _healthClass;
+    private float _remaningRatio;
+
 
     private void Start()
     {
         _healthText = GetComponent<Text>();
+        _healthClass = GameObject.FindWithTag("Player").GetComponent<Health>();
     }
     private void Update()
     {
+
+        if ( _healthClass == null) { Debug.LogWarning(gameObject.name + ":  is missing something."); return; }
+        _remaningRatio = _healthClass._currentHealth / _healthClass.MaxHealth;
+
+        
+
         if (GameObject.FindWithTag("Player") != null) 
         {
             _health = GameObject.FindWithTag("Player").GetComponent<Health>()._currentHealth;
@@ -24,9 +35,9 @@ public class DisplayHealth : MonoBehaviour
         }
         
 
-        if (_healthText)
+        if (_healthBar != null)
         {
-            _healthText.text = "Health: " + _health.ToString("F2");
+            _healthBar.fillAmount = _remaningRatio;
         }
     }
 

@@ -43,7 +43,11 @@ public class GameManager : MonoBehaviour
 
                 foreach (var _g in OnWhenDie)
                 {
+                
+                
                     _g.SetActive(true);
+                
+                    
                 }
             }
         
@@ -59,7 +63,7 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
-        Debug.Log("Win the game");
+        
         
 
         foreach (var _g in OnWhenWin)

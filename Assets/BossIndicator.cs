@@ -5,6 +5,9 @@ public class BossIndicator : MonoBehaviour
     private GameObject _boss;
     private Vector2 _bossScreenPos;
     private SpriteRenderer _indicatorImage;
+    private Transform _transform;
+    private Transform _playerTransfomr;
+
 
     private Camera _camera;
     private Vector3 _bossPos;
@@ -16,12 +19,16 @@ public class BossIndicator : MonoBehaviour
     {
         _camera = Camera.main;
         _indicatorImage = GetComponentInChildren<SpriteRenderer>();
+        _playerTransfomr = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        _transform = GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        if (_playerTransfomr == null) { Debug.LogWarning(gameObject.name + ":  is missing something."); return; }
+       _transform.position = _playerTransfomr.transform.position;
+
         if(GameObject.FindWithTag("Boss") != null)
         {
             _boss = GameObject.FindWithTag("Boss").gameObject;
@@ -36,7 +43,7 @@ public class BossIndicator : MonoBehaviour
 
 
         _bossScreenPos = _camera.WorldToViewportPoint(_boss.transform.position);
-        Debug.Log(_bossScreenPos);
+        
 
         if (_bossScreenPos.x < 0 || _bossScreenPos.x > 1 || _bossScreenPos.y < 0 || _bossScreenPos.y > 1)
         {

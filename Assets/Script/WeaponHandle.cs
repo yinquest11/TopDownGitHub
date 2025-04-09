@@ -47,7 +47,7 @@ public class WeaponHandle : MonoBehaviour
                 if (Input.GetButtonDown("Dig") || Input.GetButton("Dig"))
                     return;
 
-                
+                if (_dig == null) { Debug.LogWarning(gameObject.name + ": _dig is missing something."); return; }
                 _dig.MainCameraBigSize = 30f;
                 _dig.InitiaslizeZoom();
                 
